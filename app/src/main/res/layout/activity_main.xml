@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_weight="4"
+    android:background="@color/yellow"
+    tools:context=".model.MainActivity">
+
+    <EditText
+        android:id="@+id/white_team"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/blue_team_name"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:background="@color/light_blue"
+        android:textSize="24sp" />
+<!--        android:padding="24dp"-->
+
+    <EditText
+        android:id="@+id/read_team"
+        android:hint="@string/red_team_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:background="@color/light_red"
+        android:textSize="24sp" />
+<!--        android:padding="24dp"-->
+
+    <TextView
+        android:id="@+id/words_here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quiz_words"
+        android:layout_gravity="center"
+        android:layout_weight="2"
+        android:padding="24dp"
+        android:textSize="24sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/hint_text_counter"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+
+        <TextView
+            android:id="@+id/counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/hint_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/hint_from"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/total_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:background="@color/yellow"
+            android:textStyle="italic" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/true_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/right_btn"
+            android:layout_margin="20dp"
+            android:textSize="20sp"
+            android:background="@color/green"
+            style="?android:attr/button" />
+        <Button
+            android:id="@+id/false_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/false_btn"
+            android:textSize="20sp"
+            android:layout_margin="20dp"
+            style="?android:attr/button"
+            android:background="@color/red"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

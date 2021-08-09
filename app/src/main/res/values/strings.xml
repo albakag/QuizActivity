@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">QuizActivity</string>
+    <string name="quiz_words">Some Words</string>
+    <string name="false_btn">Пропустить</string>
+    <string name="right_btn">Верно</string>
+    <string name="toolbar_btn_text">some text will be here</string>
+    <string name="right_answer">Угадали</string>
+    <string name="unright">Неверно</string>
+    <string name="hint_text_counter">Количество верных ответов</string>
+    <string name="hint_from">из</string>
+    <string name="white_team">Команда белых</string>
+    <string name="red_team">Команда красных</string>
+    <string name="red_team_name">Название команды красных</string>
+    <string name="blue_team_name">Название команды синих</string>
+
+</resources>
