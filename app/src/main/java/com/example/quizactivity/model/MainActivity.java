@@ -11,70 +11,61 @@ import com.example.quizactivity.R;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnTrue, btnfals;
-    TextView showWords, counter, totalAmount;
+    Button btnTrue, btnFals;
+    TextView tvShowWords, tvShowResultsOnline;
+    final String space = " ";
 
-    private final int currentIndex = 0;
     int mCounter = 0;
-    int mTotalCounter = 1;
-    String mScounter = String.valueOf(mCounter);
-    String mStotalCounter = String.valueOf(mTotalCounter);
-    Random random = new Random();
+    int mTotalCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnTrue = (Button) findViewById(R.id.true_btn);
-        btnfals = (Button) findViewById(R.id.false_btn);
-        showWords = (TextView) findViewById(R.id.words_here);
-        counter = (TextView) findViewById(R.id.counter);
-        totalAmount = (TextView) findViewById(R.id.total_amount);
-
-        counter.setText(mScounter);
-        totalAmount.setText(mStotalCounter);
-
-        wordFinder();
-        String abc = String.valueOf(wordFinder());
-        showWords.setText(abc);
-//        showWords.setText(words[(int) (Math.random()*10)]);
+        btnTrue = (Button) findViewById(R.id.btn_true_btn);
+        btnFals = (Button) findViewById(R.id.btn_false_btn);
+        tvShowWords = (TextView) findViewById(R.id.tv_words_here);
+        tvShowResultsOnline = findViewById(R.id.tv_amount_answers);
+        tvShowWords.setText(wordFinder());
 
         View.OnClickListener onClickListener = view -> {
-//            showWords.setText(words[(int) (Math.random()*10)]);
-            wordFinder();
-            String adfb = String.valueOf(wordFinder());
-            showWords.setText(adfb);
+            tvShowWords.setText(wordFinder());
+            StringBuffer strBuffer = new StringBuffer();
             switch (view.getId()) {
-                case R.id.true_btn: Toast.makeText(MainActivity.this, R.string.right_answer, Toast.LENGTH_SHORT).show();
-                mCounter++;
-                mTotalCounter++;
-                mScounter = String.valueOf(mCounter);
-                counter.setText(mScounter);
-                mStotalCounter = String.valueOf(mTotalCounter);
-                totalAmount.setText(mStotalCounter);
+                case (R.id.btn_true_btn): Toast.makeText(MainActivity.this, R.string.right_answer, Toast.LENGTH_SHORT).show();
+                    tvShowResultsOnline.setText(strBuffer.append(getString(R.string.true_amout_answers)).
+                            append(space).append(++mCounter).
+                            append(space).append(getString(R.string.total_amount_answers)).
+                            append(space).append(++mTotalCounter));
                     break;
-                case R.id.false_btn: Toast.makeText(MainActivity.this, R.string.unright, Toast.LENGTH_SHORT).show();
-                mTotalCounter++;
-                mStotalCounter = String.valueOf(mTotalCounter);
-                totalAmount.setText(mStotalCounter);
-                break;
+                case (R.id.btn_false_btn): Toast.makeText(MainActivity.this, R.string.unright, Toast.LENGTH_SHORT).show();
+                    tvShowResultsOnline.setText(strBuffer.append(getString(R.string.true_amout_answers)).
+                            append(space).append(mCounter).
+                            append(space).append(getString(R.string.total_amount_answers)).
+                            append(space).append(++mTotalCounter));
+                    break;
             }
         };
+
         btnTrue.setOnClickListener(onClickListener);
-        btnfals.setOnClickListener(onClickListener);
+        btnFals.setOnClickListener(onClickListener);
     }
-    public int wordFinder() {
-        int a;
-        List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            numbers.add((int) (Math.random()*100));
+
+    final String abc = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+    char [] alphabit = abc.toCharArray();
+    List<Character> numbers = new ArrayList<>();
+    String answer;
+
+    public String wordFinder() {
+        for (int i = 0; i < alphabit.length; i++) {
+            numbers.add(alphabit[i]);
         }
-        return a = numbers.get((int) (Math.random()*100));
+        answer = numbers.get((int) (Math.random()*33)).toString();
+        return answer;
     }
 
 }
